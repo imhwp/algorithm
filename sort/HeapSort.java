@@ -11,40 +11,48 @@ public class HeapSort {
     public static void main(String[] args) {
         //建堆。整堆
         //大顶堆对应升序，小顶堆对应降序
+        buildHeap(nums);
+        for (int i = nums.length-1; i >= 1 ; i--) {
+            swap(0,i,nums);
+            heapify(0,i-1,nums);
+        }
+        for(int i:nums){
+            System.out.println(i);
+        }
     }
 
     /**
-     * 建堆
-     *
+     * 建堆过程需要配合整堆
+     * 建堆从最后一个非叶子节点开始，从右往左，从下往上进行。
+     * 每次调整，都需要配合整堆操作。
      */
     public static void buildHeap(int[] nums){
-        for(int i=0;i<nums.length/2;i++){
-            int left = i*2+1;
-            int right = i*2+2;
-            int maxPos = i;
-            if(left<nums.length){
-                if(nums[maxPos]<nums[left]){
-                    maxPos=left;
-                }
-            }
-            if(right<nums.length){
-                if(nums[maxPos]<nums[right]){
-                    maxPos=right;
-                }
-            }
-            swap(maxPos,i,nums);
+        for (int i = nums.length/2; i >=0 ; i--) {
+            heapify(i,nums.length-1,nums);
         }
     }
 
     /**
      * 整堆
+     * 整堆操作是以当前节点开始，从上往下的传递过程
      */
-    public static void heapify(){
-
+    public static void heapify(int index,int end,int[] nums){
+        int left = index*2+1;
+        int right = index*2+2;
+        int maxPos = index;
+        if(left<=end && nums[left]>nums[maxPos]){
+            maxPos = left;
+        }
+        if(right<=end && nums[right]>nums[maxPos]){
+            maxPos = right;
+        }
+        if(maxPos!=index){
+            swap(maxPos,index,nums);
+            heapify(maxPos,end,nums);
+        }
     }
 
     public static void swap(int a,int b,int[] nums){
-        if(a==b) return;
         int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
