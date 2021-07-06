@@ -2,6 +2,10 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 归并排序是时间稳定的排序，nlog(n)的平均时间复杂度
+ * 主要思想是分治思想，可以全局创建一个临时数组，避免了在递归过程中频繁创建临时数组
+ */
 public class MergeSort {
     static int[] nums = {1,3,7,6,2,5,4};
     public static void sort(int left,int right,int[] arr,int[] temp){
