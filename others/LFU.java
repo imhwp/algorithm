@@ -16,8 +16,7 @@ public class LFU<k, v> {
     }
 
     public void put(k key, v value) {
-        v v = cache.get(key);
-        if (v == null) {
+        if (!cache.containsKey(key)) {
             if (cache.size() == capcity) {
                 removeElement();
             }
@@ -29,10 +28,9 @@ public class LFU<k, v> {
     }
 
     public v get(k key) {
-        v value = cache.get(key);
-        if (value != null) {
+        if (cache.containsKey(key)) {
             addHitCount(key);
-            return value;
+            return cache.get(key);
         }
         return null;
     }
