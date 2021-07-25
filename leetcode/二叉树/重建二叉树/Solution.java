@@ -1,22 +1,15 @@
 package leetcode.二叉树.重建二叉树;
 
-import sun.reflect.generics.tree.Tree;
+
+import leetcode.二叉树.TreeNode;
 
 /**
  * 输入某二叉树的前序遍历和中序遍历的结果，请构建该二叉树并返回其根节点。
  * Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
  */
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) {
-        val = x;
-    }
-}
 public class Solution {
-    public TreeNode buildTree(int[] preOrder,int[] inOrder){
+    public TreeNode buildTree(int[] preOrder, int[] inOrder){
         return recurBuild(preOrder,0,preOrder.length-1,inOrder,0,inOrder.length-1);
     }
 
