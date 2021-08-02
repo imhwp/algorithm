@@ -1,4 +1,4 @@
-package leetcode.最长公共子序列;
+package leetcode.动态规划.最长公共子序列;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package leetcode.最大子序列和;
+package leetcode.动态规划.最大子序列和;
 
 public class Main {
     public int maxSubArray(int[] nums){

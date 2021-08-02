@@ -1,4 +1,4 @@
-package leetcode.等差数列划分;
+package leetcode.滑动窗口.等差数列划分;
 
 public class Main {
     public static int solution(int[] nums){

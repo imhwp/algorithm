@@ -1,4 +1,4 @@
-package leetcode.复原IP地址;
+package leetcode.深度优先搜索.复原IP地址;
 
 import java.util.ArrayList;
 import java.util.List;
